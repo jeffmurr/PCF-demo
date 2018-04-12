@@ -4,6 +4,6 @@ applications:
   memory: 1G
   instances: 1
   versions : JAVA_BUILDPACK_9.0
-  host: demoApp_metlife_blueApp_v1
+  host: demoApp_blueApp_v1
   buildpack: java_buildpack
   path: ./target/pcfdemo.war
