@@ -17,21 +17,31 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 
 	<properties>
+		<finalName>pcfdemo</finalName>
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
+
+  <profiles>
+		<profile>
+			<id>ci</id>
+			<properties>
+				<versionNumber>${project.version}</versionNumber>
+				<finalName>${project.artifactId}-${versionNumber}</finalName>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencies>
-
-
 
       <dependency>
           <groupId>org.springframework.amqp</groupId>
           <artifactId>spring-rabbit</artifactId>
           <version>1.2.0.RELEASE</version>
-      </dependency>	
-				 
+      </dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -55,20 +65,21 @@
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-service-connector</artifactId>
-		    <version>0.9.2</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-spring-service-connector</artifactId>
+			<version>1.2.0.RELEASE</version>
 		</dependency>
 		<!-- If you intend to deploy the app on Cloud Foundry, add the following -->
+
 		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>cloudfoundry-connector</artifactId>
-		    <version>0.9.2</version>
-		</dependency>		
-		
-		<!-- 
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+			<version>1.2.0.RELEASE</version>
+		</dependency>
+
+		<!--
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -188,7 +199,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>pcfdemo</finalName>
+		<finalName>${finalName}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -207,14 +218,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<compilerArgument>-Xlint:all</compilerArgument>
-					<showWarnings>true</showWarnings>
-					<showDeprecation>true</showDeprecation>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -224,6 +227,6 @@
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
 			</plugin>
-		</plugins> 
+		</plugins>
 	</build>
 </project>
