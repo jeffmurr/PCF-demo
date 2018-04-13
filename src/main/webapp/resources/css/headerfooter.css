@@ -11,8 +11,8 @@
 	width: 1024px;
 }
 .nav-bar {
-	/* background-color: darkblue; */
-	background-color: green;
+	background-color: darkblue; 
+	/* background-color: green; */
   padding-right: 0px;
   padding-left: 0px;
   font-family: Arial, Helvetica, sans-serif;
