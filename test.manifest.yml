@@ -1,7 +1,7 @@
 ---
 applications:
-- name: demoBlueAppV1
+- name: pcfdemo
   memory: 1G
   instances: 1
-  host: test-demoApp_blueApp_v1
+  host: test-demo_v1
   path: ./target/pcfdemo.war
