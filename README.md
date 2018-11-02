@@ -1,5 +1,5 @@
 
-PCF Demo 
+PCF Demo Readme
 =========
 1) Login to your org and space:
 cf login -a api.my-unique-domain.io
